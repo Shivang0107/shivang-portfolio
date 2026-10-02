@@ -1,0 +1,197 @@
+.hero-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.gravity-toggle-wrap {
+  position: relative;
+}
+.gravity-layer.shaking {
+  animation: gravity-shake 0.24s ease-out;
+}
+@keyframes gravity-shake {
+  25% {
+    translate: -4px 1px;
+  }
+  50% {
+    translate: 4px -1px;
+  }
+  75% {
+    translate: -2px 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gravity-layer.shaking {
+    animation: none;
+  }
+}
+.gravity-toggle {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-size: 9px;
+}
+.gravity-toggle:disabled {
+  cursor: wait;
+}
+.gravity-error {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  padding: 10px;
+  background: var(--surface);
+  width: 220px;
+  font-size: 11px;
+  z-index: 10;
+}
+.gravity-active [data-gravity] {
+  opacity: 0;
+  pointer-events: none;
+}
+.gravity-active .heading-letter {
+  opacity: 0;
+}
+.gravity-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 65;
+  overflow: hidden;
+}
+.gravity-word {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg);
+  background: var(--bg);
+  user-select: none;
+  touch-action: none;
+  pointer-events: auto;
+  cursor: grab;
+  white-space: nowrap;
+  will-change: transform;
+  transform-origin: center;
+  line-height: 1;
+  border-radius: 3px;
+}
+.gravity-word:active {
+  cursor: grabbing;
+}
+.gravity-word.chip {
+  border: 1px solid var(--accent);
+  background: var(--surface-raised);
+  color: var(--accent);
+}
+.gravity-word.selected {
+  outline: 1px dashed var(--accent);
+  outline-offset: 3px;
+}
+.gravity-floor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 110px;
+  border-bottom: 1px dashed var(--accent);
+  opacity: 0.5;
+}
+.gravity-controls {
+  position: fixed;
+  z-index: 85;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1040px, calc(100% - 24px));
+  min-height: 75px;
+  padding: 16px 20px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+  box-shadow: 0 10px 50px #0004;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.gravity-controls > div {
+  margin-right: auto;
+}
+.gravity-controls strong {
+  font:
+    500 15px 'Space Grotesk Variable',
+    sans-serif;
+}
+.gravity-controls p {
+  font-size: 10px;
+  margin-top: 5px;
+}
+.gravity-controls button,
+.gravity-controls select {
+  font:
+    10px 'JetBrains Mono',
+    monospace;
+  border: 1px solid var(--line);
+  padding: 11px;
+  background: var(--bg);
+  border-radius: 3px;
+  cursor: pointer;
+  color: var(--fg);
+}
+.gravity-controls select {
+  max-width: 160px;
+}
+.gravity-controls select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.gravity-controls .gravity-reset {
+  background: var(--accent-fill);
+  color: var(--on-accent);
+  border-color: var(--accent-fill);
+}
+@media (max-width: 760px) {
+  .hero-top {
+    flex-wrap: wrap;
+    gap: 17px;
+  }
+  .hero-tools {
+    margin-left: auto;
+  }
+  .gravity-toggle {
+    font-size: 7px;
+    padding: 6px 8px;
+  }
+  .gravity-controls {
+    padding: 10px;
+    gap: 7px;
+    flex-wrap: wrap;
+    bottom: 7px;
+  }
+  .gravity-controls > div {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .gravity-controls strong {
+    font-size: 12px;
+  }
+  .gravity-controls p {
+    font-size: 8px;
+    margin: 0;
+  }
+  .gravity-controls button,
+  .gravity-controls select {
+    padding: 9px 6px;
+    font-size: 8px;
+  }
+  .gravity-controls select {
+    max-width: 100px;
+  }
+  .gravity-controls .gravity-reset {
+    margin-left: auto;
+  }
+}

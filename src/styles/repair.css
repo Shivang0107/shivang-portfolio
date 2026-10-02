@@ -1,0 +1,356 @@
+.heading-letter {
+  display: inline-block;
+}
+.heading-broken .heading-letter {
+  transform: translateY(calc(var(--jitter) * var(--heading-offset) * 1px))
+    rotate(calc(var(--jitter) * var(--heading-offset) * 0.25deg));
+  transition: transform 0.15s;
+}
+.heading-broken .identity {
+  border-bottom: 1px dashed var(--accent);
+}
+.editor-broken {
+  transform: rotate(var(--editor-rotation));
+  transition: transform 0.18s;
+  outline: 1px dashed var(--accent);
+  background: var(--surface-raised);
+}
+.project-layout-absolute .project:nth-child(odd) {
+  translate: 0 30px;
+  rotate: -3deg;
+}
+.project-layout-absolute .project:nth-child(even) {
+  translate: 0 -10px;
+  rotate: 3deg;
+}
+.project-layout-absolute {
+  gap: 90px 30px;
+  padding-block: 25px;
+}
+.project-layout-stack {
+  grid-template-columns: 1fr;
+}
+.project-grid .project {
+  transition:
+    rotate 0.25s,
+    translate 0.25s;
+}
+.metric-index {
+  color: var(--accent);
+  display: block;
+  margin-bottom: 8px;
+}
+.metrics-broken {
+  outline: 1px dashed var(--accent);
+  outline-offset: 8px;
+}
+.page-repair-active {
+  padding-bottom: 130px;
+}
+.page-repair-active .profile-editor {
+  overflow: visible;
+}
+.page-repair-active .hero-identity {
+  overflow: visible;
+}
+.repair-station {
+  scroll-margin-block: 130px;
+  background: var(--surface-raised);
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  padding: 18px;
+  margin-block: 22px;
+  color: var(--fg);
+  position: relative;
+  z-index: 2;
+}
+.profile-editor > .repair-station {
+  margin: 14px;
+}
+.repair-station-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.repair-station strong {
+  font:
+    500 12px 'JetBrains Mono',
+    monospace;
+}
+.repair-tag {
+  color: var(--accent);
+  font:
+    9px 'JetBrains Mono',
+    monospace;
+  padding: 4px 6px;
+  border: 1px solid var(--accent);
+}
+.repair-station p {
+  font-size: 12px;
+  margin: 12px 0;
+}
+.repair-inputs {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.repair-inputs label {
+  display: block;
+  flex: 1;
+  min-width: 140px;
+  font-size: 11px;
+}
+.repair-inputs output {
+  float: right;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+}
+.repair-inputs input {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  margin-top: 8px;
+  accent-color: var(--accent);
+  cursor: ew-resize;
+}
+.repair-inputs input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.repair-inputs fieldset {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  border: 0;
+  padding: 0;
+}
+.repair-inputs legend {
+  font-size: 11px;
+  margin-bottom: 9px;
+}
+.repair-inputs fieldset button {
+  border: 1px solid var(--line);
+  background: var(--bg);
+  padding: 9px 12px;
+  font:
+    10px 'JetBrains Mono',
+    monospace;
+}
+.repair-inputs fieldset button[aria-pressed='true'] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.repair-apply,
+.repair-next {
+  background: var(--accent-fill);
+  color: var(--on-accent);
+  padding: 12px 16px;
+  border-radius: 3px;
+  font:
+    11px 'JetBrains Mono',
+    monospace;
+}
+.repair-station.resolved {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-color: var(--line);
+  padding-block: 12px;
+}
+.repair-station .repair-feedback {
+  margin-bottom: 0;
+  color: var(--accent);
+}
+.repair-hud {
+  position: fixed;
+  z-index: 80;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1100px, calc(100% - 32px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 7px;
+  box-shadow: 0 8px 50px #0003;
+  padding: 18px 22px;
+  color: var(--fg);
+}
+.repair-hud-status {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+}
+.repair-status-dot {
+  height: 7px;
+  width: 7px;
+  flex-shrink: 0;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-top: 6px;
+}
+.repair-hud-status strong {
+  font:
+    500 14px 'Space Grotesk Variable',
+    sans-serif;
+}
+.repair-hud-status p {
+  font-size: 10px;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+.repair-checks {
+  display: flex;
+  gap: 6px;
+}
+.repair-checks button {
+  width: 32px;
+  height: 32px;
+  font:
+    10px 'JetBrains Mono',
+    monospace;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+.repair-checks button.passed {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.repair-hud-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+.repair-hud-actions > button:last-child {
+  font-size: 11px;
+  padding-block: 10px;
+}
+.page-game-preview {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 28px;
+  align-self: center;
+}
+.page-game-preview > span {
+  color: var(--muted);
+  font-size: 10px;
+  display: block;
+  margin-bottom: 24px;
+}
+.page-game-preview > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--line);
+  font:
+    12px 'JetBrains Mono',
+    monospace;
+}
+.page-game-preview b {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 9px;
+}
+.page-game-preview > div > span {
+  margin-left: auto;
+  color: var(--accent);
+  font-size: 9px;
+}
+.page-game-preview p {
+  font-size: 11px;
+  margin-top: 25px;
+}
+@media (max-width: 900px) {
+  .repair-hud {
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+  .repair-hud-status {
+    flex: 1;
+    min-width: 200px;
+  }
+  .repair-hud-actions {
+    margin-left: auto;
+  }
+  .page-repair-active {
+    padding-bottom: 170px;
+  }
+}
+@media (max-width: 600px) {
+  .repair-hud {
+    bottom: 8px;
+    width: calc(100% - 16px);
+    padding: 13px;
+    gap: 10px;
+  }
+  .repair-hud-status {
+    flex-basis: 100%;
+  }
+  .repair-hud-status strong {
+    font-size: 13px;
+  }
+  .repair-hud-status p {
+    font-size: 9px;
+  }
+  .repair-checks {
+    gap: 4px;
+  }
+  .repair-checks button {
+    width: 25px;
+    height: 30px;
+    font-size: 9px;
+  }
+  .repair-next {
+    padding: 10px;
+    font-size: 9px;
+  }
+  .repair-hud-actions {
+    gap: 10px;
+  }
+  .repair-hud-actions > button:last-child {
+    font-size: 10px;
+  }
+  .repair-station {
+    padding: 14px;
+  }
+  .repair-inputs {
+    gap: 12px;
+  }
+  .repair-apply {
+    font-size: 10px;
+    padding: 12px;
+  }
+  .repair-station strong {
+    font-size: 11px;
+  }
+  .page-game-preview {
+    padding: 20px;
+  }
+  .page-game-preview > div {
+    font-size: 10px;
+  }
+  .project-layout-absolute .project:nth-child(odd) {
+    rotate: -2deg;
+    translate: none;
+  }
+  .project-layout-absolute .project:nth-child(even) {
+    rotate: 2deg;
+    translate: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .heading-letter,
+  .editor-broken,
+  .project-grid .project {
+    transition: none;
+  }
+}

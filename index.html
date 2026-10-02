@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1421" />
+    <script>
+      // Resolve the saved appearance before the first paint.
+      try {
+        var savedTheme = localStorage.getItem('portfolio-theme')
+        var initialTheme =
+          savedTheme === 'light' || savedTheme === 'dark'
+            ? savedTheme
+            : matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light'
+        document.documentElement.dataset.theme = initialTheme
+        document.documentElement.style.colorScheme = initialTheme
+      } catch {
+        document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light'
+      }
+    </script>
+    <meta
+      name="description"
+      content="Shivang Sharma, Software Engineer in Mumbai. Building full-stack applications, APIs, and interfaces for high-traffic digital platforms."
+    />
+    <meta
+      property="og:title"
+      content="Shivang Sharma | Software Engineer – Full-Stack & Frontend"
+    />
+    <meta
+      property="og:description"
+      content="Don't just read about what I build. Experience what I can build. Explore my work and fix a tiny broken website."
+    />
+    <meta property="og:type" content="website" />
+    <title>Shivang Sharma | Software Engineer – Full-Stack & Frontend</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
